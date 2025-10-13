@@ -3,13 +3,13 @@ name: flutter_onscreen_keyboard_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.9.0
+  sdk: ^3.8.0
 
 workspace:
   - packages/flutter_onscreen_keyboard
 
 dev_dependencies:
-  melos: ^7.0.0
+  melos: ^6.3.3
 
 melos:
   repository: https://github.com/albinpk/flutter_onscreen_keyboard

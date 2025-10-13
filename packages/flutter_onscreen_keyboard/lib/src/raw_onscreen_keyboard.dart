@@ -63,7 +63,7 @@ class RawOnscreenKeyboard extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ?row.leading,
+                    if (row.leading != null) row.leading!,
                     for (final k in row.keys)
                       Expanded(
                         flex: k.flex,
@@ -82,7 +82,7 @@ class RawOnscreenKeyboard extends StatelessWidget {
                           ),
                         },
                       ),
-                    ?row.trailing,
+                    if (row.trailing != null) row.trailing!,
                   ],
                 ),
               ),

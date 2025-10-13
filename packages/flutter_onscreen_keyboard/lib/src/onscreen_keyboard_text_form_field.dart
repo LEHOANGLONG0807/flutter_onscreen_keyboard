@@ -830,7 +830,6 @@ class _OnscreenKeyboardTextFormFieldState
       keyboardAppearance: widget.keyboardAppearance,
       scrollPadding: widget.scrollPadding,
       enableInteractiveSelection: widget.enableInteractiveSelection,
-      selectAllOnFocus: widget.selectAllOnFocus,
       selectionControls: widget.selectionControls,
       buildCounter: widget.buildCounter,
       scrollPhysics: widget.scrollPhysics,
@@ -846,8 +845,6 @@ class _OnscreenKeyboardTextFormFieldState
       undoController: widget.undoController,
       onAppPrivateCommand: widget.onAppPrivateCommand,
       cursorOpacityAnimates: widget.cursorOpacityAnimates,
-      selectionHeightStyle: widget.selectionHeightStyle,
-      selectionWidthStyle: widget.selectionWidthStyle,
       dragStartBehavior: widget.dragStartBehavior,
       contentInsertionConfiguration: widget.contentInsertionConfiguration,
       statesController: widget.statesController,
@@ -856,7 +853,6 @@ class _OnscreenKeyboardTextFormFieldState
       scribbleEnabled: widget.scribbleEnabled,
       stylusHandwritingEnabled: widget.stylusHandwritingEnabled,
       canRequestFocus: widget.canRequestFocus,
-      hintLocales: widget.hintLocales,
     );
   }
 }
