@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onscreen_keyboard/flutter_onscreen_keyboard.dart';
+import 'package:flutter_onscreen_keyboard/src/constants/action_key_type.dart';
 import 'package:flutter_onscreen_keyboard/src/utils/extensions.dart';
 
 /// A widget that visually represents a [TextKey] on the onscreen keyboard.
@@ -151,7 +152,7 @@ class ActionKeyWidget extends StatelessWidget {
         border: theme.border,
         boxShadow: theme.boxShadow,
         gradient: theme.gradient,
-        color: pressed
+        color:actionKey.name.contains(ActionKeyType.backspace)?Colors.red: pressed
             ? theme.pressedBackgroundColor ?? colors.primary
             : theme.backgroundColor ?? colors.surfaceContainer,
       ),

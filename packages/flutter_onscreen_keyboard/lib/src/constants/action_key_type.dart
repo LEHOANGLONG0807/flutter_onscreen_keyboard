@@ -8,6 +8,8 @@ abstract class ActionKeyType {
   /// Identifier for the Backspace or Delete key.
   static const backspace = 'backspace';
 
+  static const backspaceAll = 'backspaceAll';
+
   /// Identifier for the Tab key.
   static const tab = 'tab';
 
