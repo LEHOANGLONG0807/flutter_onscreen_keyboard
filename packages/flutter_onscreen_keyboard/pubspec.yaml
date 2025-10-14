@@ -23,6 +23,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   very_good_analysis: ^9.0.0
+  flutter_typeahead: ^4.7.0
 
 topics:
   - keyboard
