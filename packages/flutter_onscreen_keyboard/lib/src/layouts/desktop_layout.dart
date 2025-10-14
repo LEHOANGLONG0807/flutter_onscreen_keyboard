@@ -18,7 +18,18 @@ class DesktopKeyboardLayout extends KeyboardLayout {
   @override
   Map<String, KeyboardMode> get modes => {
     'default': KeyboardMode(rows: _defaultMode),
+    'email': KeyboardMode(rows: _emailMode),
   };
+
+  List<KeyboardRow> get _emailMode => [
+    KeyboardRow(
+      keys: [
+        for (final c in ['@gmail.com', '@yahoo.com', '@outlook.com', '@icloud.com', '@hotmail.com'])
+          OnscreenKeyboardKey.text(primary: c),
+      ],
+    ),
+    ..._defaultMode,
+  ];
 
   List<KeyboardRow> get _defaultMode => [
     const KeyboardRow(
@@ -34,9 +45,13 @@ class DesktopKeyboardLayout extends KeyboardLayout {
         OnscreenKeyboardKey.text(primary: '9', secondary: '('),
         OnscreenKeyboardKey.text(primary: '0', secondary: ')'),
 
-        OnscreenKeyboardKey.action(
-          name: ActionKeyType.backspaceAll,
-          child: Text('Backspace All', style: TextStyle(fontSize: 25, color: Colors.white)),
+        OnscreenKeyboardKey.text(
+          primary: '',
+          child: Text(
+            'Backspace All',
+            style: TextStyle(fontSize: 25, color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
           flex: 50,
         ),
       ],
@@ -50,9 +65,13 @@ class DesktopKeyboardLayout extends KeyboardLayout {
         ),
         for (final c in ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'])
           OnscreenKeyboardKey.text(primary: c),
-        OnscreenKeyboardKey.action(
+        const OnscreenKeyboardKey.action(
           name: ActionKeyType.backspace,
-          child: Text('Backspace', style: TextStyle(fontSize: 25, color: Colors.white)),
+          child: Text(
+            'Backspace',
+            style: TextStyle(fontSize: 25, color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
           flex: 50,
         ),
       ],

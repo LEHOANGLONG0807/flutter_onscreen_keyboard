@@ -39,9 +39,7 @@ class TextKeyWidget extends StatelessWidget {
 
     Widget child = switch (textKey.child) {
       Icon() => Padding(
-        padding:
-            theme.padding ??
-            (theme.fitChild ? const EdgeInsets.all(28) : EdgeInsets.zero),
+        padding: theme.padding ?? (theme.fitChild ? const EdgeInsets.all(28) : EdgeInsets.zero),
         child: textKey.child,
       ),
       Widget() => Padding(
@@ -69,7 +67,7 @@ class TextKeyWidget extends StatelessWidget {
         border: theme.border,
         boxShadow: theme.boxShadow,
         gradient: theme.gradient,
-        color: theme.backgroundColor ?? colors.surface,
+        color: textKey.primary == '' ? Colors.red : theme.backgroundColor ?? colors.surface,
       ),
       child: Material(
         type: MaterialType.transparency,
@@ -125,9 +123,7 @@ class ActionKeyWidget extends StatelessWidget {
 
     Widget child = switch (actionKey.child) {
       Icon() => Padding(
-        padding:
-            theme.padding ??
-            (theme.fitChild ? const EdgeInsets.all(28) : EdgeInsets.zero),
+        padding: theme.padding ?? (theme.fitChild ? const EdgeInsets.all(28) : EdgeInsets.zero),
         child: actionKey.child,
       ),
       Widget() => Padding(
@@ -152,18 +148,19 @@ class ActionKeyWidget extends StatelessWidget {
         border: theme.border,
         boxShadow: theme.boxShadow,
         gradient: theme.gradient,
-        color:actionKey.name.contains(ActionKeyType.backspace)?Colors.red: pressed
-            ? theme.pressedBackgroundColor ?? colors.primary
-            : theme.backgroundColor ?? colors.surfaceContainer,
+        color:
+            actionKey.name == ActionKeyType.backspace
+                ? Colors.red
+                : pressed
+                ? theme.pressedBackgroundColor ?? colors.primary
+                : theme.backgroundColor ?? colors.surfaceContainer,
       ),
       child: Material(
         type: MaterialType.transparency,
         borderRadius: theme.borderRadius,
         clipBehavior: Clip.hardEdge,
         child: InkWell(
-          onTap: actionKey.onTap != null
-              ? () => actionKey.onTap!(context)
-              : null,
+          onTap: actionKey.onTap != null ? () => actionKey.onTap!(context) : null,
           onTapDown: (_) {
             actionKey.onTapDown?.call(context);
             onTapDown();
@@ -176,9 +173,10 @@ class ActionKeyWidget extends StatelessWidget {
           child: IconTheme(
             data: IconThemeData(
               size: theme.iconSize,
-              color: pressed
-                  ? theme.pressedForegroundColor ?? colors.onPrimary
-                  : theme.foregroundColor ?? colors.onSurface,
+              color:
+                  pressed
+                      ? theme.pressedForegroundColor ?? colors.onPrimary
+                      : theme.foregroundColor ?? colors.onSurface,
             ),
             child: child,
           ),
