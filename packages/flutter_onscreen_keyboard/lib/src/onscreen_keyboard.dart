@@ -656,6 +656,7 @@ class _ControlBar extends StatelessWidget {
               const SizedBox(width: 10),
               IconButton(
                 onPressed: () {
+                  FocusScope.of(context).unfocus();
                   OnscreenKeyboard.of(context).close();
                 },
                 icon: const Icon(

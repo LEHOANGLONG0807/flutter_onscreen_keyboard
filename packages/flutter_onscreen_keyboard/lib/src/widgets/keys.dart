@@ -143,6 +143,7 @@ class ActionKeyWidget extends StatelessWidget {
     return Container(
       margin: theme.margin,
       clipBehavior: Clip.hardEdge,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: theme.borderRadius,
         border: theme.border,

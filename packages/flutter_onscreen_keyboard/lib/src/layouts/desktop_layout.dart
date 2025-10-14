@@ -46,10 +46,12 @@ class DesktopKeyboardLayout extends KeyboardLayout {
         OnscreenKeyboardKey.text(primary: '0', secondary: ')'),
         const OnscreenKeyboardKey.action(
           name: ActionKeyType.backspaceAll,
-          child: Text(
-            'Backspace All',
-            style: TextStyle(fontSize: 25, color: Colors.white),
-            textAlign: TextAlign.center,
+          child: Center(
+            child: Text(
+              'Backspace All',
+              style: TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
           ),
           flex: 50,
         ),
@@ -66,10 +68,12 @@ class DesktopKeyboardLayout extends KeyboardLayout {
           OnscreenKeyboardKey.text(primary: c),
         const OnscreenKeyboardKey.action(
           name: ActionKeyType.backspace,
-          child: Text(
-            'Backspace',
-            style: TextStyle(fontSize: 25, color: Colors.white),
-            textAlign: TextAlign.center,
+          child: Center(
+            child: Text(
+              'Backspace',
+              style: TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
           ),
           flex: 50,
         ),
