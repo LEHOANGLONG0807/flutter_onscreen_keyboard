@@ -256,6 +256,13 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
               activeTextField!.onChanged!(newText);
             }
           }
+        case ActionKeyType.backspaceAll:
+          if (controller.text.isEmpty) return;
+          controller.clear();
+          controller.selection = const TextSelection.collapsed(offset: 0);
+          if (activeTextField?.onChanged != null) {
+            activeTextField!.onChanged!('');
+          }
         case ActionKeyType.tab:
           if (!controller.selection.isValid) return;
           final newText = controller.text.replaceRange(

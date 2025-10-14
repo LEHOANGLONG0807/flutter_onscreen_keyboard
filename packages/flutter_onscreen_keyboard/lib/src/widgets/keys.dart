@@ -67,7 +67,7 @@ class TextKeyWidget extends StatelessWidget {
         border: theme.border,
         boxShadow: theme.boxShadow,
         gradient: theme.gradient,
-        color: textKey.primary == '' ? Colors.red : theme.backgroundColor ?? colors.surface,
+        color: theme.backgroundColor ?? colors.surface,
       ),
       child: Material(
         type: MaterialType.transparency,
@@ -149,7 +149,7 @@ class ActionKeyWidget extends StatelessWidget {
         boxShadow: theme.boxShadow,
         gradient: theme.gradient,
         color:
-            actionKey.name == ActionKeyType.backspace
+            actionKey.name.contains(ActionKeyType.backspace)
                 ? Colors.red
                 : pressed
                 ? theme.pressedBackgroundColor ?? colors.primary

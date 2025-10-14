@@ -44,9 +44,8 @@ class DesktopKeyboardLayout extends KeyboardLayout {
         OnscreenKeyboardKey.text(primary: '8', secondary: '*'),
         OnscreenKeyboardKey.text(primary: '9', secondary: '('),
         OnscreenKeyboardKey.text(primary: '0', secondary: ')'),
-
-        OnscreenKeyboardKey.text(
-          primary: '',
+        const OnscreenKeyboardKey.action(
+          name: ActionKeyType.backspaceAll,
           child: Text(
             'Backspace All',
             style: TextStyle(fontSize: 25, color: Colors.white),
