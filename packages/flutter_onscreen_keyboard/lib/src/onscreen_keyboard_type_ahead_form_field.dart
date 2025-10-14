@@ -23,11 +23,13 @@ class OnscreenKeyboardTypeAheadFormField<T> extends StatefulWidget {
     this.suggestionsBoxController,
     this.noItemsFoundBuilder,
     this.loadingBuilder,
+    this.enabled,
     this.debounceDuration = const Duration(milliseconds: 300),
     this.maxLines = 1,
   });
 
   final bool enableOnscreenKeyboard;
+  final bool? enabled;
   final TextEditingController? controller;
   final FocusNode? focusNode;
   final InputDecoration? decoration;
@@ -113,6 +115,7 @@ class _OnscreenKeyboardTypeAheadFormFieldState<T>
       textFieldConfiguration: TextFieldConfiguration(
         controller: _effectiveController,
         focusNode: _effectiveFocusNode,
+        enabled: widget.enabled??true,
         keyboardType:
             widget.enableOnscreenKeyboard
                 ? TextInputType.none
