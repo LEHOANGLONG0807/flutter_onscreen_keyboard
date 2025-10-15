@@ -10,12 +10,12 @@ import 'package:flutter_onscreen_keyboard/src/constants/action_key_type.dart';
 import 'package:flutter_onscreen_keyboard/src/theme/onscreen_keyboard_theme.dart';
 import 'package:flutter_onscreen_keyboard/src/types.dart';
 import 'package:flutter_onscreen_keyboard/src/utils/extensions.dart';
-// import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 part 'onscreen_keyboard_controller.dart';
 part 'onscreen_keyboard_field_state.dart';
 part 'onscreen_keyboard_text_field.dart';
 part 'onscreen_keyboard_text_form_field.dart';
-// part 'onscreen_keyboard_type_ahead_form_field.dart';
+part 'onscreen_keyboard_type_ahead_form_field.dart';
 
 /// A customizable on-screen keyboard widget.
 ///
