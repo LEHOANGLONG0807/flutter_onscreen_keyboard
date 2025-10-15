@@ -49,4 +49,17 @@ abstract interface class OnscreenKeyboardController {
   /// Calling this method switches the current mode to the next one,
   /// wrapping around to the first mode when the end is reached.
   void switchMode();
+
+  KeyboardLayout? _customLayout;
+
+  void setCustomLayout(KeyboardLayout layout) {
+    _customLayout = layout;
+  }
+
+  void resetToDefaultLayout() {
+    _customLayout = null;
+  }
+
+  KeyboardLayout get activeLayout =>
+      _customLayout ?? const DesktopKeyboardLayout();
 }

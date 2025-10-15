@@ -143,7 +143,7 @@ class DesktopKeyboardEmailLayout extends KeyboardLayout {
     KeyboardRow(
       keys: [
         for (final c in ['@gmail.com', '@yahoo.com', '@outlook.com', '@icloud.com', '@hotmail.com'])
-          OnscreenKeyboardKey.text(primary: c),
+          OnscreenKeyboardKey.text(primary: c.toUpperCase()),
       ],
     ),
     const KeyboardRow(

@@ -44,6 +44,7 @@ class OnscreenKeyboardTextFormField extends StatefulWidget {
     this.style,
     this.strutStyle,
     this.textDirection,
+    this.layout,
     this.textAlign = TextAlign.start,
     this.textAlignVertical,
     this.autofocus = false,
@@ -125,6 +126,8 @@ class OnscreenKeyboardTextFormField extends StatefulWidget {
   /// If you want to access the form field from the onscreen keyboard, you can
   /// use this key to get the [FormFieldState] of the form field.
   final Key? formFieldKey;
+
+  final KeyboardLayout? layout;
 
   /// Enables or disables the automatic onscreen keyboard behavior.
   ///
@@ -749,6 +752,9 @@ class _OnscreenKeyboardTextFormFieldState
   void _onFocusChanged() {
     if (!widget.enableOnscreenKeyboard) return;
     if (_effectiveFocusNode.hasPrimaryFocus) {
+      if (widget.layout != null) {
+        _keyboard.setCustomLayout(widget.layout!);
+      }
       _keyboard
         ..attachTextField(this)
         ..open();

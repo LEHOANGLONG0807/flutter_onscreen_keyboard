@@ -10,12 +10,12 @@ import 'package:flutter_onscreen_keyboard/src/constants/action_key_type.dart';
 import 'package:flutter_onscreen_keyboard/src/theme/onscreen_keyboard_theme.dart';
 import 'package:flutter_onscreen_keyboard/src/types.dart';
 import 'package:flutter_onscreen_keyboard/src/utils/extensions.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
+// import 'package:flutter_typeahead/flutter_typeahead.dart';
 part 'onscreen_keyboard_controller.dart';
 part 'onscreen_keyboard_field_state.dart';
 part 'onscreen_keyboard_text_field.dart';
 part 'onscreen_keyboard_text_form_field.dart';
-part 'onscreen_keyboard_type_ahead_form_field.dart';
+// part 'onscreen_keyboard_type_ahead_form_field.dart';
 
 /// A customizable on-screen keyboard widget.
 ///
@@ -337,6 +337,7 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
   @override
   void close() {
     detachTextField();
+    resetToDefaultLayout();
     setState(() => _visible = false);
   }
 
@@ -551,7 +552,7 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
                                                   aspectRatio: widget.aspectRatio,
                                                   onKeyDown: _onKeyDown,
                                                   onKeyUp: _onKeyUp,
-                                                  layout: _layout,
+                                                  layout: activeLayout,
                                                   mode: _mode,
                                                   pressedActionKeys: _pressedActionKeys,
                                                   showSecondary: _showSecondary,
@@ -589,6 +590,30 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
         ],
       ),
     );
+  }
+
+  @override
+  KeyboardLayout? _customLayout;
+
+  /// Currently active layout — either custom or default
+  @override
+  KeyboardLayout get activeLayout => _customLayout ?? _layout;
+
+  /// Set a temporary custom layout
+  @override
+  void setCustomLayout(KeyboardLayout layout) {
+    setState(() {
+      _customLayout = layout;
+      _mode = layout.modes.keys.first;
+    });
+  }
+
+  @override
+  void resetToDefaultLayout() {
+    setState(() {
+      _customLayout = null;
+      _mode = _layout.modes.keys.first;
+    });
   }
 }
 
