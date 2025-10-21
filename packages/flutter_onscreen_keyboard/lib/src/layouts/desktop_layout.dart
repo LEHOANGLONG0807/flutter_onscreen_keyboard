@@ -44,7 +44,7 @@ class DesktopKeyboardLayout extends KeyboardLayout {
         OnscreenKeyboardKey.text(primary: '8', secondary: '*'),
         OnscreenKeyboardKey.text(primary: '9', secondary: '('),
         OnscreenKeyboardKey.text(primary: '0', secondary: ')'),
-        const OnscreenKeyboardKey.action(
+        OnscreenKeyboardKey.action(
           name: ActionKeyType.backspaceAll,
           child: Center(
             child: Text(
@@ -138,7 +138,6 @@ class DesktopKeyboardEmailLayout extends KeyboardLayout {
     'default': KeyboardMode(rows: _defaultMode),
   };
 
-
   List<KeyboardRow> get _defaultMode => [
     KeyboardRow(
       keys: [
@@ -158,7 +157,7 @@ class DesktopKeyboardEmailLayout extends KeyboardLayout {
         OnscreenKeyboardKey.text(primary: '8', secondary: '*'),
         OnscreenKeyboardKey.text(primary: '9', secondary: '('),
         OnscreenKeyboardKey.text(primary: '0', secondary: ')'),
-        const OnscreenKeyboardKey.action(
+        OnscreenKeyboardKey.action(
           name: ActionKeyType.backspaceAll,
           child: Center(
             child: Text(
@@ -235,6 +234,76 @@ class DesktopKeyboardEmailLayout extends KeyboardLayout {
           primary: ' ',
           child: Icon(Icons.space_bar_rounded),
         ),
+      ],
+    ),
+  ];
+}
+
+class DesktopKeyboardNumberLayout extends KeyboardLayout {
+  /// Creates a [DesktopKeyboardNumberLayout] instance.
+  const DesktopKeyboardNumberLayout();
+
+  @override
+  double get aspectRatio => 5 / 2;
+
+  @override
+  Map<String, KeyboardMode> get modes => {
+    'default': KeyboardMode(rows: _defaultMode),
+  };
+
+  List<KeyboardRow> get _defaultMode => [
+    const KeyboardRow(
+      keys: [
+        OnscreenKeyboardKey.text(primary: '1'),
+        OnscreenKeyboardKey.text(primary: '2'),
+        OnscreenKeyboardKey.text(primary: '3'),
+
+        OnscreenKeyboardKey.action(
+          name: ActionKeyType.backspaceAll,
+          child: Center(
+            child: Text(
+              'Backspace All',
+              style: TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          flex: 50,
+        ),
+      ],
+    ),
+    KeyboardRow(
+      keys: [
+        OnscreenKeyboardKey.text(primary: '4'),
+        OnscreenKeyboardKey.text(primary: '5'),
+        OnscreenKeyboardKey.text(primary: '6'),
+
+        const OnscreenKeyboardKey.action(
+          name: ActionKeyType.backspace,
+          child: Center(
+            child: Text(
+              'Backspace',
+              style: TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          flex: 50,
+        ),
+      ],
+    ),
+    KeyboardRow(
+      keys: [
+        OnscreenKeyboardKey.text(primary: '7'),
+        OnscreenKeyboardKey.text(primary: '8'),
+        OnscreenKeyboardKey.text(primary: '9'),
+        OnscreenKeyboardKey.text(primary: '-', flex: 50),
+      ],
+    ),
+    KeyboardRow(
+      keys: [
+        OnscreenKeyboardKey.text(primary: '.'),
+        OnscreenKeyboardKey.text(primary: '0'),
+        OnscreenKeyboardKey.text(primary: ','),
+        OnscreenKeyboardKey.text(primary: '', flex: 50),
       ],
     ),
   ];
