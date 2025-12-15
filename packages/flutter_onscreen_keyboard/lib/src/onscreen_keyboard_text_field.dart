@@ -29,7 +29,7 @@ class OnscreenKeyboardTextField extends StatefulWidget {
   /// Creates a new [OnscreenKeyboardTextField] widget.
   const OnscreenKeyboardTextField({
     super.key,
-    this.enableOnscreenKeyboard = false,
+    this.enableOnscreenKeyboard = true,
     this.groupId = EditableText,
     this.controller,
     this.focusNode,
