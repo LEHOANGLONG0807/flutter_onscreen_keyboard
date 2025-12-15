@@ -31,7 +31,7 @@ class OnscreenKeyboardTextFormField extends StatefulWidget {
   const OnscreenKeyboardTextFormField({
     super.key,
     this.formFieldKey,
-    this.enableOnscreenKeyboard = false,
+    this.enableOnscreenKeyboard = true,
     this.groupId = EditableText,
     this.controller,
     this.initialValue,
