@@ -10,7 +10,7 @@ class OnscreenKeyboardTypeAheadFormField<T> extends StatefulWidget {
     required this.itemBuilder,
     required this.suggestionsCallback,
     super.key,
-    this.enableOnscreenKeyboard = false,
+    this.enableOnscreenKeyboard = true,
     this.controller,
     this.focusNode,
     this.decoration,
