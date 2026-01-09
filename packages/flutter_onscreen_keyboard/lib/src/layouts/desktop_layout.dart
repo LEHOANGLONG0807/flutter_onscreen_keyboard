@@ -34,21 +34,21 @@ class DesktopKeyboardLayout extends KeyboardLayout {
   List<KeyboardRow> get _defaultMode => [
     const KeyboardRow(
       keys: [
-        OnscreenKeyboardKey.text(primary: '1', secondary: '!'),
-        OnscreenKeyboardKey.text(primary: '2', secondary: '@'),
-        OnscreenKeyboardKey.text(primary: '3', secondary: '-'),
-        OnscreenKeyboardKey.text(primary: '4', secondary: r'$'),
-        OnscreenKeyboardKey.text(primary: '5', secondary: '%'),
-        OnscreenKeyboardKey.text(primary: '6', secondary: '+'),
-        OnscreenKeyboardKey.text(primary: '7', secondary: '&'),
-        OnscreenKeyboardKey.text(primary: '8', secondary: '*'),
-        OnscreenKeyboardKey.text(primary: '9', secondary: '('),
-        OnscreenKeyboardKey.text(primary: '0', secondary: ')'),
+        OnscreenKeyboardKey.text(primary: '!' ),
+        OnscreenKeyboardKey.text(primary: '@' ),
+        OnscreenKeyboardKey.text(primary: '-' ),
+        OnscreenKeyboardKey.text(primary: r'$'),
+        OnscreenKeyboardKey.text(primary: '%'),
+        OnscreenKeyboardKey.text(primary: '+' ),
+        OnscreenKeyboardKey.text(primary: '&' ),
+        OnscreenKeyboardKey.text(primary: '*' ),
+        OnscreenKeyboardKey.text(primary: '(' ),
+        OnscreenKeyboardKey.text(primary: ')' ),
         OnscreenKeyboardKey.action(
           name: ActionKeyType.backspaceAll,
           child: Center(
             child: Text(
-              'Backspace All',
+              'Delete all',
               style: TextStyle(fontSize: 25, color: Colors.white),
               textAlign: TextAlign.center,
             ),
@@ -57,20 +57,23 @@ class DesktopKeyboardLayout extends KeyboardLayout {
         ),
       ],
     ),
-    KeyboardRow(
+    const KeyboardRow(
       keys: [
-        const OnscreenKeyboardKey.action(
-          name: ActionKeyType.tab,
-          child: Icon(Icons.keyboard_tab_rounded),
-          flex: 25,
-        ),
-        for (final c in ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'])
-          OnscreenKeyboardKey.text(primary: c),
+        OnscreenKeyboardKey.text(primary: '1',),
+        OnscreenKeyboardKey.text(primary: '2'),
+        OnscreenKeyboardKey.text(primary: '3'),
+        OnscreenKeyboardKey.text(primary: '4'),
+        OnscreenKeyboardKey.text(primary: '5'),
+        OnscreenKeyboardKey.text(primary: '6'),
+        OnscreenKeyboardKey.text(primary: '7'),
+        OnscreenKeyboardKey.text(primary: '8'),
+        OnscreenKeyboardKey.text(primary: '9'),
+        OnscreenKeyboardKey.text(primary: '0'),
         const OnscreenKeyboardKey.action(
           name: ActionKeyType.backspace,
           child: Center(
             child: Text(
-              'Backspace',
+              'Delete',
               style: TextStyle(fontSize: 25, color: Colors.white),
               textAlign: TextAlign.center,
             ),
@@ -81,38 +84,24 @@ class DesktopKeyboardLayout extends KeyboardLayout {
     ),
     KeyboardRow(
       keys: [
-        const OnscreenKeyboardKey.action(
-          name: ActionKeyType.capslock,
-          child: Icon(Icons.keyboard_capslock_rounded),
-          flex: 30,
-          canHold: true,
-        ),
-        for (final c in ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'])
+        for (final c in ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'])
           OnscreenKeyboardKey.text(primary: c),
-        const OnscreenKeyboardKey.text(primary: ';', secondary: ':'),
-        const OnscreenKeyboardKey.action(
-          name: ActionKeyType.enter,
-          child: Icon(Icons.keyboard_return_rounded),
-          flex: 30,
-        ),
+
       ],
     ),
     KeyboardRow(
       keys: [
-        const OnscreenKeyboardKey.action(
-          name: ActionKeyType.shift,
-          child: Icon(Icons.arrow_upward_rounded),
-          flex: 35,
-        ),
+        for (final c in ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'])
+          OnscreenKeyboardKey.text(primary: c),
+        const OnscreenKeyboardKey.text(primary: ';', secondary: ':'),
+      ],
+    ),
+    KeyboardRow(
+      keys: [
         for (final c in ['Z', 'X', 'C', 'V', 'B', 'N', 'M']) OnscreenKeyboardKey.text(primary: c),
         const OnscreenKeyboardKey.text(primary: ','),
         const OnscreenKeyboardKey.text(primary: '.'),
         const OnscreenKeyboardKey.text(primary: '/'),
-        const OnscreenKeyboardKey.action(
-          name: ActionKeyType.shift,
-          child: Icon(Icons.arrow_upward_rounded),
-          flex: 35,
-        ),
       ],
     ),
     const KeyboardRow(
@@ -147,43 +136,39 @@ class DesktopKeyboardEmailLayout extends KeyboardLayout {
     ),
     const KeyboardRow(
       keys: [
-        OnscreenKeyboardKey.text(primary: '1', secondary: '!'),
-        OnscreenKeyboardKey.text(primary: '2', secondary: '@'),
-        OnscreenKeyboardKey.text(primary: '3', secondary: '-'),
-        OnscreenKeyboardKey.text(primary: '4', secondary: r'$'),
-        OnscreenKeyboardKey.text(primary: '5', secondary: '%'),
-        OnscreenKeyboardKey.text(primary: '6', secondary: '+'),
-        OnscreenKeyboardKey.text(primary: '7', secondary: '&'),
-        OnscreenKeyboardKey.text(primary: '8', secondary: '*'),
-        OnscreenKeyboardKey.text(primary: '9', secondary: '('),
-        OnscreenKeyboardKey.text(primary: '0', secondary: ')'),
+        OnscreenKeyboardKey.text(primary: '1',),
+        OnscreenKeyboardKey.text(primary: '2'),
+        OnscreenKeyboardKey.text(primary: '3'),
+        OnscreenKeyboardKey.text(primary: '4'),
+        OnscreenKeyboardKey.text(primary: '5'),
+        OnscreenKeyboardKey.text(primary: '6'),
+        OnscreenKeyboardKey.text(primary: '7'),
+        OnscreenKeyboardKey.text(primary: '8'),
+        OnscreenKeyboardKey.text(primary: '9'),
+        OnscreenKeyboardKey.text(primary: '0'),
         OnscreenKeyboardKey.action(
           name: ActionKeyType.backspaceAll,
           child: Center(
             child: Text(
-              'Backspace All',
+              'Delete all',
               style: TextStyle(fontSize: 25, color: Colors.white),
               textAlign: TextAlign.center,
             ),
           ),
           flex: 50,
         ),
+
       ],
     ),
     KeyboardRow(
       keys: [
-        const OnscreenKeyboardKey.action(
-          name: ActionKeyType.tab,
-          child: Icon(Icons.keyboard_tab_rounded),
-          flex: 25,
-        ),
         for (final c in ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'])
           OnscreenKeyboardKey.text(primary: c),
         const OnscreenKeyboardKey.action(
           name: ActionKeyType.backspace,
           child: Center(
             child: Text(
-              'Backspace',
+              'Delete',
               style: TextStyle(fontSize: 25, color: Colors.white),
               textAlign: TextAlign.center,
             ),
@@ -194,38 +179,17 @@ class DesktopKeyboardEmailLayout extends KeyboardLayout {
     ),
     KeyboardRow(
       keys: [
-        const OnscreenKeyboardKey.action(
-          name: ActionKeyType.capslock,
-          child: Icon(Icons.keyboard_capslock_rounded),
-          flex: 30,
-          canHold: true,
-        ),
         for (final c in ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'])
           OnscreenKeyboardKey.text(primary: c),
-        const OnscreenKeyboardKey.text(primary: ';', secondary: ':'),
-        const OnscreenKeyboardKey.action(
-          name: ActionKeyType.enter,
-          child: Icon(Icons.keyboard_return_rounded),
-          flex: 30,
-        ),
+        const OnscreenKeyboardKey.text(primary: '@'),
       ],
     ),
     KeyboardRow(
       keys: [
-        const OnscreenKeyboardKey.action(
-          name: ActionKeyType.shift,
-          child: Icon(Icons.arrow_upward_rounded),
-          flex: 35,
-        ),
         for (final c in ['Z', 'X', 'C', 'V', 'B', 'N', 'M']) OnscreenKeyboardKey.text(primary: c),
-        const OnscreenKeyboardKey.text(primary: ','),
-        const OnscreenKeyboardKey.text(primary: '.'),
-        const OnscreenKeyboardKey.text(primary: '/'),
-        const OnscreenKeyboardKey.action(
-          name: ActionKeyType.shift,
-          child: Icon(Icons.arrow_upward_rounded),
-          flex: 35,
-        ),
+        const OnscreenKeyboardKey.text(primary: '+'),
+        const OnscreenKeyboardKey.text(primary: '-'),
+        const OnscreenKeyboardKey.text(primary: '_'),
       ],
     ),
     const KeyboardRow(
@@ -257,12 +221,11 @@ class DesktopKeyboardNumberLayout extends KeyboardLayout {
         OnscreenKeyboardKey.text(primary: '1'),
         OnscreenKeyboardKey.text(primary: '2'),
         OnscreenKeyboardKey.text(primary: '3'),
-
         OnscreenKeyboardKey.action(
           name: ActionKeyType.backspaceAll,
           child: Center(
             child: Text(
-              'Backspace All',
+              'Delete all',
               style: TextStyle(fontSize: 25, color: Colors.white),
               textAlign: TextAlign.center,
             ),
@@ -276,12 +239,11 @@ class DesktopKeyboardNumberLayout extends KeyboardLayout {
         OnscreenKeyboardKey.text(primary: '4'),
         OnscreenKeyboardKey.text(primary: '5'),
         OnscreenKeyboardKey.text(primary: '6'),
-
         const OnscreenKeyboardKey.action(
           name: ActionKeyType.backspace,
           child: Center(
             child: Text(
-              'Backspace',
+              'Delete',
               style: TextStyle(fontSize: 25, color: Colors.white),
               textAlign: TextAlign.center,
             ),
