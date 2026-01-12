@@ -161,6 +161,8 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
         _handleTexTextKeyDown(key);
       case ActionKey():
         _handleActionKeyDown(key);
+      case EmptyKey():
+        break;
     }
 
     for (final listener in _rawKeyDownListeners) {
@@ -174,6 +176,8 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
         break;
       case ActionKey():
         _handleActionKeyUp(key);
+      case EmptyKey():
+        break;
     }
   }
 
@@ -257,13 +261,6 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
               activeTextField!.onChanged!(newText);
             }
           }
-        case ActionKeyType.backspaceAll:
-          if (controller.text.isEmpty) return;
-          controller.clear();
-          controller.selection = const TextSelection.collapsed(offset: 0);
-          if (activeTextField?.onChanged != null) {
-            activeTextField!.onChanged!('');
-          }
         case ActionKeyType.tab:
           if (!controller.selection.isValid) return;
           final newText = controller.text.replaceRange(
@@ -314,7 +311,9 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
   }
 
   void _handleActionKeyUp(ActionKey key) {
+    print(key.name);
     _safeSetState(() {
+
       if (key.canHold && !_pressedActionKeys.contains(key.name)) {
         _pressedActionKeys.add(key.name);
       } else {
@@ -385,7 +384,7 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
   KeyboardLayout _getDefaultLayout() => switch (defaultTargetPlatform) {
     TargetPlatform.android ||
     TargetPlatform.iOS ||
-    TargetPlatform.fuchsia => const MobileKeyboardLayout(),
+    TargetPlatform.fuchsia => const DesktopKeyboardLayout(),
     TargetPlatform.macOS ||
     TargetPlatform.windows ||
     TargetPlatform.linux => const DesktopKeyboardLayout(),

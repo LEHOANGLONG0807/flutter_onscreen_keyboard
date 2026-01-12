@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onscreen_keyboard/flutter_onscreen_keyboard.dart';
-import 'package:flutter_onscreen_keyboard/src/constants/action_key_type.dart';
 import 'package:flutter_onscreen_keyboard/src/utils/extensions.dart';
 
 /// A widget that visually represents a [TextKey] on the onscreen keyboard.
@@ -124,11 +123,11 @@ class ActionKeyWidget extends StatelessWidget {
     Widget child = switch (actionKey.child) {
       Icon() => Padding(
         padding: theme.padding ?? (theme.fitChild ? const EdgeInsets.all(28) : EdgeInsets.zero),
-        child: actionKey.child,
+        child: pressed ? actionKey.childPressed ?? actionKey.child : actionKey.child,
       ),
       Widget() => Padding(
         padding: theme.padding ?? EdgeInsets.zero,
-        child: actionKey.child,
+        child: pressed ? actionKey.childPressed ?? actionKey.child : actionKey.child,
       ),
       null => Padding(
         padding: theme.padding ?? EdgeInsets.zero,
@@ -143,18 +142,12 @@ class ActionKeyWidget extends StatelessWidget {
     return Container(
       margin: theme.margin,
       clipBehavior: Clip.hardEdge,
-      alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: theme.borderRadius,
         border: theme.border,
         boxShadow: theme.boxShadow,
         gradient: theme.gradient,
-        color:
-            actionKey.name.contains(ActionKeyType.backspace)
-                ? Colors.red
-                : pressed
-                ? theme.pressedBackgroundColor ?? colors.primary
-                : theme.backgroundColor ?? colors.surfaceContainer,
+        color: theme.backgroundColor ?? colors.surface,
       ),
       child: Material(
         type: MaterialType.transparency,
@@ -174,10 +167,7 @@ class ActionKeyWidget extends StatelessWidget {
           child: IconTheme(
             data: IconThemeData(
               size: theme.iconSize,
-              color:
-                  pressed
-                      ? theme.pressedForegroundColor ?? colors.onPrimary
-                      : theme.foregroundColor ?? colors.onSurface,
+              color: theme.foregroundColor ?? colors.onSurface,
             ),
             child: child,
           ),

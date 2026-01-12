@@ -31,6 +31,8 @@ sealed class OnscreenKeyboardKey {
     CallbackWithContext? onTapUp,
   }) = TextKey._;
 
+  const factory OnscreenKeyboardKey.empty() = EmptyKey._;
+
   /// Creates an [ActionKey], which represents non-character keys
   /// such as "Enter", "Backspace", "Shift", etc.
   ///
@@ -41,6 +43,7 @@ sealed class OnscreenKeyboardKey {
     required String name,
     String? label,
     Widget? child,
+    Widget? childPressed,
     bool canHold,
     int flex,
     CallbackWithContext? onTap,
@@ -117,6 +120,7 @@ class ActionKey extends OnscreenKeyboardKey {
     required this.name,
     this.label,
     this.child,
+    this.childPressed,
     this.canHold = false,
     super.flex,
     super.onTap,
@@ -133,9 +137,19 @@ class ActionKey extends OnscreenKeyboardKey {
   /// Optional custom widget to render inside the key.
   final Widget? child;
 
+  final Widget? childPressed;
+
   /// Whether the key can be held down for repeated action.
   final bool canHold;
 
   @override
   String toString() => 'ActionKey($name)';
+}
+
+class EmptyKey extends OnscreenKeyboardKey {
+  /// Creates an [ActionKey].
+  const EmptyKey._();
+
+  @override
+  String toString() => 'EmptyLey';
 }

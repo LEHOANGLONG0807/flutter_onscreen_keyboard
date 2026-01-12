@@ -75,6 +75,8 @@ class _HomeScreenState extends State<HomeScreen> {
         log('key: "$primary"');
       case ActionKey(:final name): // a action key: "shift", "backspace", etc.
         log('action: $name');
+      case EmptyKey():
+        break;
     }
   }
 

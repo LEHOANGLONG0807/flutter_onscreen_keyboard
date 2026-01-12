@@ -80,6 +80,7 @@ class RawOnscreenKeyboard extends StatelessWidget {
                             onTapDown: () => onKeyDown(k),
                             onTapUp: () => onKeyUp(k),
                           ),
+                          EmptyKey() => const SizedBox.shrink(),
                         },
                       ),
                     if (row.trailing != null) row.trailing!,
