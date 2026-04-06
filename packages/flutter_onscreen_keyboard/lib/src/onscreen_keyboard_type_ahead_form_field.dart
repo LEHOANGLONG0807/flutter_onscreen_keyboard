@@ -136,4 +136,8 @@ class _OnscreenKeyboardTypeAheadFormFieldState<T>
       onSuggestionSelected: widget.onSuggestionSelected,
     );
   }
+
+  @override
+  ValueChanged<String>? get onSubmitted => (_){};
+
 }

@@ -21,4 +21,6 @@ abstract class ActionKeyType {
 
   /// Identifier for the Shift key.
   static const shift = 'shift';
+
+  static const done = 'done';
 }

@@ -800,4 +800,7 @@ class _OnscreenKeyboardTextFieldState extends State<OnscreenKeyboardTextField>
       toolbarOptions: widget.toolbarOptions,
     );
   }
+
+  @override
+  ValueChanged<String>? get onSubmitted => widget.onSubmitted;
 }

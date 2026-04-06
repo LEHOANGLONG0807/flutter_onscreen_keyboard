@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 
 import 'package:flutter/cupertino.dart';
@@ -304,6 +305,13 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
 
         case ActionKeyType.capslock:
           break;
+        case ActionKeyType.done:
+          if (!controller.selection.isValid) return;
+          activeTextField!.focusNode.unfocus();
+          if (activeTextField!.onSubmitted != null) {
+            activeTextField?.onSubmitted?.call(controller.text);
+          }
+          break;
         case ActionKeyType.shift:
           break;
       }
@@ -313,7 +321,6 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
   void _handleActionKeyUp(ActionKey key) {
     print(key.name);
     _safeSetState(() {
-
       if (key.canHold && !_pressedActionKeys.contains(key.name)) {
         _pressedActionKeys.add(key.name);
       } else {
@@ -476,10 +483,13 @@ class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements Onscreen
                                                 ? SystemMouseCursors.grabbing
                                                 : SystemMouseCursors.grab,
                                         onPressed: null,
-                                        icon: Icon(
-                                          Icons.menu,
-                                          size: 30,
-                                          color: Theme.of(context).iconTheme.color,
+                                        icon: Transform.rotate(
+                                          angle: math.pi / 2,
+                                          child: Icon(
+                                            Icons.drag_indicator_outlined,
+                                            size: 30,
+                                            color: Theme.of(context).iconTheme.color,
+                                          ),
                                         ),
                                       );
                                     },
@@ -644,58 +654,6 @@ class _ControlBar extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
     final theme = context.theme;
 
-    final Widget trailing;
-    if (actions != null && actions!.isNotEmpty) {
-      trailing = Row(
-        mainAxisSize: MainAxisSize.min,
-        children: actions!,
-      );
-    } else {
-      trailing = Flexible(
-        child: FittedBox(
-          child: Row(
-            children: [
-              IconButton(
-                onPressed: () {
-                  OnscreenKeyboard.of(context).moveToBottom();
-                },
-                icon: const Icon(
-                  Icons.arrow_downward_rounded,
-                  color: Colors.black,
-                  size: 30,
-                ),
-                tooltip: 'Move to bottom',
-              ),
-              const SizedBox(width: 10),
-              IconButton(
-                onPressed: () {
-                  OnscreenKeyboard.of(context).moveToTop();
-                },
-                icon: const Icon(
-                  Icons.arrow_upward_rounded,
-                  color: Colors.black,
-                  size: 30,
-                ),
-                tooltip: 'Move to top',
-              ),
-              const SizedBox(width: 10),
-              IconButton(
-                onPressed: () {
-                  FocusScope.of(context).unfocus();
-                  OnscreenKeyboard.of(context).close();
-                },
-                icon: const Icon(
-                  Icons.close_rounded,
-                  color: Colors.black,
-                  size: 30,
-                ),
-                tooltip: 'Close',
-              ),
-            ],
-          ),
-        ),
-      );
-    }
 
     return Material(
       color: theme.controlBarColor ?? colors.surfaceContainer,
@@ -704,8 +662,54 @@ class _ControlBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            dragHandle,
-            trailing,
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(width: 10,),
+                IconButton(
+                  onPressed: () {
+                    OnscreenKeyboard.of(context).moveToBottom();
+                  },
+                  icon: const Icon(
+                    Icons.arrow_downward_rounded,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  tooltip: 'Move to bottom',
+                ),
+                const SizedBox(width: 10),
+                IconButton(
+                  onPressed: () {
+                    OnscreenKeyboard.of(context).moveToTop();
+                  },
+                  icon: const Icon(
+                    Icons.arrow_upward_rounded,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  tooltip: 'Move to top',
+                ),
+              ],
+            ),
+  dragHandle,
+            IconButton(
+              onPressed: () {
+                FocusScope.of(context).unfocus();
+                OnscreenKeyboard.of(context).close();
+              },
+              icon: const Row(
+                children: [
+                  Icon(
+                    Icons.close_rounded,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  Text('Close'),
+                  const SizedBox(width: 10,),
+                ],
+              ),
+              tooltip: 'Close',
+            ),
           ],
         ),
       ),

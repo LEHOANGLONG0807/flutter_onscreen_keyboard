@@ -147,7 +147,10 @@ class ActionKeyWidget extends StatelessWidget {
         border: theme.border,
         boxShadow: theme.boxShadow,
         gradient: theme.gradient,
-        color: theme.backgroundColor ?? colors.surface,
+        color:
+            actionKey.name == 'done' || actionKey.name == 'enter'
+                ? Colors.blue
+                : theme.backgroundColor ?? colors.surface,
       ),
       child: Material(
         type: MaterialType.transparency,

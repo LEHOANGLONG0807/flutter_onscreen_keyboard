@@ -861,4 +861,7 @@ class _OnscreenKeyboardTextFormFieldState
       canRequestFocus: widget.canRequestFocus,
     );
   }
+
+  @override
+  ValueChanged<String>? get onSubmitted => widget.onFieldSubmitted;
 }

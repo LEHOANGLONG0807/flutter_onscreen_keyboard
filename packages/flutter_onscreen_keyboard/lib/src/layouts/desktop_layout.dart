@@ -57,7 +57,7 @@ class DesktopKeyboardLayout extends KeyboardLayout {
           canHold: true,
           child: Center(
             child: Text(
-              '!#1',
+              '?123',
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500),
             ),
           ),
@@ -91,7 +91,17 @@ class DesktopKeyboardLayout extends KeyboardLayout {
       keys: [
         OnscreenKeyboardKey.text(
           primary: ' ',
+          flex: 60,
           child: Icon(Icons.space_bar_rounded),
+
+        ),
+        OnscreenKeyboardKey.action(
+          name: ActionKeyType.enter,
+          child: Icon(
+            Icons.subdirectory_arrow_left_rounded,
+            size: 50,
+            color: Colors.white,
+          ),
         ),
       ],
     ),
@@ -215,6 +225,25 @@ class DesktopKeyboardNumberLayout extends KeyboardLayout {
         OnscreenKeyboardKey.text(primary: '1'),
         OnscreenKeyboardKey.text(primary: '2'),
         OnscreenKeyboardKey.text(primary: '3'),
+        OnscreenKeyboardKey.text(primary: '-'),
+      ],
+    ),
+    const KeyboardRow(
+      keys: [
+        OnscreenKeyboardKey.text(primary: '4'),
+        OnscreenKeyboardKey.text(primary: '5'),
+        OnscreenKeyboardKey.text(primary: '6'),
+        OnscreenKeyboardKey.text(
+          primary: ' ',
+          child: Icon(Icons.space_bar_rounded),
+        ),
+      ],
+    ),
+    const KeyboardRow(
+      keys: [
+        OnscreenKeyboardKey.text(primary: '7'),
+        OnscreenKeyboardKey.text(primary: '8'),
+        OnscreenKeyboardKey.text(primary: '9'),
         OnscreenKeyboardKey.action(
           name: ActionKeyType.backspace,
           child: Icon(
@@ -227,26 +256,17 @@ class DesktopKeyboardNumberLayout extends KeyboardLayout {
     ),
     const KeyboardRow(
       keys: [
-        OnscreenKeyboardKey.text(primary: '4'),
-        OnscreenKeyboardKey.text(primary: '5'),
-        OnscreenKeyboardKey.text(primary: '6'),
-        OnscreenKeyboardKey.text(primary: '-'),
-      ],
-    ),
-    const KeyboardRow(
-      keys: [
-        OnscreenKeyboardKey.text(primary: '7'),
-        OnscreenKeyboardKey.text(primary: '8'),
-        OnscreenKeyboardKey.text(primary: '9'),
-        OnscreenKeyboardKey.text(primary: '.'),
-      ],
-    ),
-    const KeyboardRow(
-      keys: [
-        OnscreenKeyboardKey.empty(),
-        OnscreenKeyboardKey.text(primary: '0'),
-        OnscreenKeyboardKey.empty(),
         OnscreenKeyboardKey.text(primary: ','),
+        OnscreenKeyboardKey.text(primary: '0'),
+        OnscreenKeyboardKey.text(primary: '.'),
+        OnscreenKeyboardKey.action(
+          name: ActionKeyType.done,
+          child: Icon(
+            Icons.arrow_right_alt,
+            size: 50,
+            color: Colors.white,
+          ),
+        ),
       ],
     ),
   ];
