@@ -6,6 +6,9 @@ part of 'onscreen_keyboard.dart';
 /// managing focus and text input sources, and adding listeners
 /// for raw key events.
 abstract interface class OnscreenKeyboardController {
+
+  bool get isShowSecondary => false;
+
   /// Opens the onscreen keyboard.
   void open();
 
