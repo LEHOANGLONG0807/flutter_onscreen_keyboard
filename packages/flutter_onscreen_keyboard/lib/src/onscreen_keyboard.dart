@@ -149,6 +149,10 @@ No OnscreenKeyboard found in context. Did you wrap your app with OnscreenKeyboar
 }
 
 class _OnscreenKeyboardState extends State<OnscreenKeyboard> implements OnscreenKeyboardController {
+
+
+  bool get isShowSecondary => _showSecondary;
+  
   /// Whether to show the secondary keys.
   bool get _showSecondary =>
       _pressedActionKeys.contains(ActionKeyType.capslock) ^
