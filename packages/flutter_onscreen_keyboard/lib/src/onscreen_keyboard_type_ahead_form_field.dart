@@ -24,6 +24,7 @@ class OnscreenKeyboardTypeAheadFormField<T> extends StatefulWidget {
     this.noItemsFoundBuilder,
     this.loadingBuilder,
     this.enabled,
+    this.direction,
     this.debounceDuration = const Duration(milliseconds: 300),
     this.maxLines = 1,
   });
@@ -39,7 +40,7 @@ class OnscreenKeyboardTypeAheadFormField<T> extends StatefulWidget {
   final FormFieldSetter<String>? onSaved;
   final String? initialValue;
   final int? maxLines;
-
+  final AxisDirection? direction;
   final SuggestionsBoxDecoration suggestionsBoxDecoration;
   final SuggestionsBoxController? suggestionsBoxController;
   final WidgetBuilder? noItemsFoundBuilder;
@@ -126,6 +127,7 @@ class _OnscreenKeyboardTypeAheadFormFieldState<T>
       initialValue: widget.initialValue,
       onSaved: widget.onSaved,
       validator: widget.validator,
+      direction: widget.direction,
       suggestionsBoxDecoration: widget.suggestionsBoxDecoration,
       suggestionsBoxController: widget.suggestionsBoxController,
       noItemsFoundBuilder: widget.noItemsFoundBuilder,
