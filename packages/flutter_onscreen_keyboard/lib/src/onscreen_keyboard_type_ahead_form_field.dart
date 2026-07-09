@@ -127,7 +127,7 @@ class _OnscreenKeyboardTypeAheadFormFieldState<T>
       initialValue: widget.initialValue,
       onSaved: widget.onSaved,
       validator: widget.validator,
-      direction: widget.direction,
+      direction: widget.direction ?? AxisDirection.up,
       suggestionsBoxDecoration: widget.suggestionsBoxDecoration,
       suggestionsBoxController: widget.suggestionsBoxController,
       noItemsFoundBuilder: widget.noItemsFoundBuilder,
